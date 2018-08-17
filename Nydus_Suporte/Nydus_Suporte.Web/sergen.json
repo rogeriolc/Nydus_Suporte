@@ -1,9 +1,23 @@
-﻿{
+{
   "RootNamespace": "Nydus_Suporte",
   "ServerTypings": {
     "Assemblies": []
   },
-  "Connections": [],
+  "Connections": [
+    {
+      "Key": "Default",
+      "Tables": [
+        {
+          "Tablename": "dbo.NydusUsers",
+          "Identifier": "Usuarios",
+          "Module": "Cadastro",
+          "PermissionKey": "Cadastro:Usuarios"
+        }
+      ]
+    }
+  ],
   "BaseRowClasses": [],
-  "RemoveForeignFields": []
+  "RemoveForeignFields": [],
+  "CustomGenerate": {},
+  "CustomSettings": {}
 }
