@@ -51,6 +51,13 @@ namespace Nydus_Suporte.Cadastro.Entities
             set { Fields.Cargo[this] = value; }
         }
 
+        [DisplayName("Função")]
+        public Int32? Funcao
+        {
+            get { return Fields.Funcao[this]; }
+            set { Fields.Funcao[this] = value; }
+        }
+
         [DisplayName("User Image"), Size(100)]
         public String UserImage
         {
@@ -118,6 +125,8 @@ namespace Nydus_Suporte.Cadastro.Entities
             public DateTimeField DataSaida;
 
             public Int16Field Ativo;
+
+            public Int32Field Funcao;
 
 
 		}

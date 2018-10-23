@@ -28,7 +28,7 @@ declare namespace Nydus_Suporte.Administration {
         const enum Fields {
             Id = "Id",
             LanguageId = "LanguageId",
-            LanguageName = "LanguageName",
+            LanguageName = "LanguageName"
         }
     }
 }
@@ -45,7 +45,7 @@ declare namespace Nydus_Suporte.Administration {
             Update = "Administration/Language/Update",
             Delete = "Administration/Language/Delete",
             Retrieve = "Administration/Language/Retrieve",
-            List = "Administration/Language/List",
+            List = "Administration/Language/List"
         }
     }
 }
@@ -87,7 +87,7 @@ declare namespace Nydus_Suporte.Administration {
             RolePermissionId = "RolePermissionId",
             RoleId = "RoleId",
             PermissionKey = "PermissionKey",
-            RoleRoleName = "RoleRoleName",
+            RoleRoleName = "RoleRoleName"
         }
     }
 }
@@ -98,7 +98,7 @@ declare namespace Nydus_Suporte.Administration {
         function List(request: RolePermissionListRequest, onSuccess?: (response: RolePermissionListResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Update = "Administration/RolePermission/Update",
-            List = "Administration/RolePermission/List",
+            List = "Administration/RolePermission/List"
         }
     }
 }
@@ -123,7 +123,7 @@ declare namespace Nydus_Suporte.Administration {
         function getLookup(): Q.Lookup<RoleRow>;
         const enum Fields {
             RoleId = "RoleId",
-            RoleName = "RoleName",
+            RoleName = "RoleName"
         }
     }
 }
@@ -140,7 +140,7 @@ declare namespace Nydus_Suporte.Administration {
             Update = "Administration/Role/Update",
             Delete = "Administration/Role/Delete",
             Retrieve = "Administration/Role/Retrieve",
-            List = "Administration/Role/List",
+            List = "Administration/Role/List"
         }
     }
 }
@@ -177,7 +177,7 @@ declare namespace Nydus_Suporte.Administration {
         const enum Methods {
             ListConnections = "Administration/Sergen/ListConnections",
             ListTables = "Administration/Sergen/ListTables",
-            Generate = "Administration/Sergen/Generate",
+            Generate = "Administration/Sergen/Generate"
         }
     }
 }
@@ -210,7 +210,7 @@ declare namespace Nydus_Suporte.Administration {
         function Update(request: TranslationUpdateRequest, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             List = "Administration/Translation/List",
-            Update = "Administration/Translation/Update",
+            Update = "Administration/Translation/Update"
         }
     }
 }
@@ -266,7 +266,7 @@ declare namespace Nydus_Suporte.Administration {
             PermissionKey = "PermissionKey",
             Granted = "Granted",
             Username = "Username",
-            User = "User",
+            User = "User"
         }
     }
 }
@@ -281,7 +281,7 @@ declare namespace Nydus_Suporte.Administration {
             Update = "Administration/UserPermission/Update",
             List = "Administration/UserPermission/List",
             ListRolePermissions = "Administration/UserPermission/ListRolePermissions",
-            ListPermissionKeys = "Administration/UserPermission/ListPermissionKeys",
+            ListPermissionKeys = "Administration/UserPermission/ListPermissionKeys"
         }
     }
 }
@@ -318,7 +318,7 @@ declare namespace Nydus_Suporte.Administration {
             UserId = "UserId",
             RoleId = "RoleId",
             Username = "Username",
-            User = "User",
+            User = "User"
         }
     }
 }
@@ -329,7 +329,7 @@ declare namespace Nydus_Suporte.Administration {
         function List(request: UserRoleListRequest, onSuccess?: (response: UserRoleListResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Update = "Administration/UserRole/Update",
-            List = "Administration/UserRole/List",
+            List = "Administration/UserRole/List"
         }
     }
 }
@@ -381,7 +381,7 @@ declare namespace Nydus_Suporte.Administration {
             InsertUserId = "InsertUserId",
             InsertDate = "InsertDate",
             UpdateUserId = "UpdateUserId",
-            UpdateDate = "UpdateDate",
+            UpdateDate = "UpdateDate"
         }
     }
 }
@@ -400,7 +400,7 @@ declare namespace Nydus_Suporte.Administration {
             Delete = "Administration/User/Delete",
             Undelete = "Administration/User/Undelete",
             Retrieve = "Administration/User/Retrieve",
-            List = "Administration/User/List",
+            List = "Administration/User/List"
         }
     }
 }
@@ -412,6 +412,7 @@ declare namespace Nydus_Suporte.Cadastro {
         NomeReal: Serenity.StringEditor;
         Email: Serenity.StringEditor;
         Cargo: Serenity.StringEditor;
+        Funcao: Editors.CadastroEditor;
         UserImage: Serenity.StringEditor;
         DataEntrada: Serenity.DateEditor;
         DataSaida: Serenity.DateEditor;
@@ -434,6 +435,7 @@ declare namespace Nydus_Suporte.Cadastro {
         DataEntrada?: string;
         DataSaida?: string;
         Ativo?: number;
+        Funcao?: number;
     }
     namespace UsuariosRow {
         const idProperty = "NydusUsersId";
@@ -449,6 +451,7 @@ declare namespace Nydus_Suporte.Cadastro {
             DataEntrada = "DataEntrada",
             DataSaida = "DataSaida",
             Ativo = "Ativo",
+            Funcao = "Funcao"
         }
     }
 }
@@ -465,7 +468,7 @@ declare namespace Nydus_Suporte.Cadastro {
             Update = "Cadastro/Usuarios/Update",
             Delete = "Cadastro/Usuarios/Delete",
             Retrieve = "Cadastro/Usuarios/Retrieve",
-            List = "Cadastro/Usuarios/List",
+            List = "Cadastro/Usuarios/List"
         }
     }
 }
@@ -506,7 +509,7 @@ declare namespace Nydus_Suporte.Common {
             UserId = "UserId",
             PreferenceType = "PreferenceType",
             Name = "Name",
-            Value = "Value",
+            Value = "Value"
         }
     }
 }
@@ -517,7 +520,7 @@ declare namespace Nydus_Suporte.Common {
         function Retrieve(request: UserPreferenceRetrieveRequest, onSuccess?: (response: UserPreferenceRetrieveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Update = "Common/UserPreference/Update",
-            Retrieve = "Common/UserPreference/Retrieve",
+            Retrieve = "Common/UserPreference/Retrieve"
         }
     }
 }
@@ -652,11 +655,6 @@ declare namespace Nydus_Suporte {
         };
     }
 }
-declare namespace Nydus_Suporte.LanguageList {
-    function getValue(): string[][];
-}
-declare namespace Nydus_Suporte.ScriptInitialization {
-}
 declare namespace Nydus_Suporte.Administration {
     class LanguageDialog extends Serenity.EntityDialog<LanguageRow, any> {
         protected getFormKey(): string;
@@ -768,26 +766,30 @@ declare namespace Nydus_Suporte.Administration {
         protected getDefaultSortBy(): UserRow.Fields[];
     }
 }
+declare namespace Nydus_Suporte.Authorization {
+    let userDefinition: ScriptUserDefinition;
+    function hasPermission(permissionKey: string): boolean;
+}
 declare namespace Nydus_Suporte.Administration {
     class PermissionCheckEditor extends Serenity.DataGrid<PermissionCheckItem, PermissionCheckEditorOptions> {
         protected getIdProperty(): string;
         private searchText;
         private byParentKey;
         constructor(container: JQuery, opt: PermissionCheckEditorOptions);
-        private getItemGrantRevokeClass(item, grant);
-        private roleOrImplicit(key);
-        private getItemEffectiveClass(item);
+        private getItemGrantRevokeClass;
+        private roleOrImplicit;
+        private getItemEffectiveClass;
         protected getColumns(): Slick.Column[];
         setItems(items: PermissionCheckItem[]): void;
         protected onViewSubmit(): boolean;
         protected onViewFilter(item: PermissionCheckItem): boolean;
-        private matchContains(item);
-        private getDescendants(item, excludeGroups);
+        private matchContains;
+        private getDescendants;
         protected onClick(e: any, row: any, cell: any): void;
-        private getParentKey(key);
+        private getParentKey;
         protected getButtons(): Serenity.ToolButton[];
         protected createToolbarExtensions(): void;
-        private getSortedGroupAndPermissionKeys(titleByKey);
+        private getSortedGroupAndPermissionKeys;
         value: UserPermissionRow[];
         private _rolePermissions;
         rolePermissions: string[];
@@ -859,6 +861,11 @@ declare namespace Nydus_Suporte.Cadastro {
         constructor(container: JQuery);
     }
 }
+declare namespace Nydus_Suporte.LanguageList {
+    function getValue(): string[][];
+}
+declare namespace Nydus_Suporte.ScriptInitialization {
+}
 declare namespace Nydus_Suporte {
     class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
         constructor();
@@ -908,6 +915,11 @@ declare namespace Nydus_Suporte.Common {
         set_successCount(value: number): void;
         get_errorCount(): any;
         set_errorCount(value: number): void;
+    }
+}
+declare namespace Nydus_Suporte.Editors {
+    class CadastroEditor extends Serenity.Select2Editor<any, any> {
+        constructor(container: JQuery);
     }
 }
 declare namespace Nydus_Suporte.DialogUtils {
@@ -978,7 +990,7 @@ declare namespace Nydus_Suporte {
     class StaticTextBlock extends Serenity.Widget<StaticTextBlockOptions> implements Serenity.ISetEditValue {
         private value;
         constructor(container: JQuery, options: StaticTextBlockOptions);
-        private updateElementContent();
+        private updateElementContent;
         /**
          * By implementing ISetEditValue interface, we allow this editor to display its field value.
          * But only do this when our text content is not explicitly set in options
@@ -1095,10 +1107,6 @@ declare namespace Nydus_Suporte.Common {
         getItem(key: string): string;
         setItem(key: string, data: string): void;
     }
-}
-declare namespace Nydus_Suporte.Authorization {
-    let userDefinition: ScriptUserDefinition;
-    function hasPermission(permissionKey: string): boolean;
 }
 declare namespace Nydus_Suporte.Membership {
     class ChangePasswordPanel extends Serenity.PropertyPanel<ChangePasswordRequest, any> {

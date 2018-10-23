@@ -4,6 +4,7 @@
         NomeReal: Serenity.StringEditor;
         Email: Serenity.StringEditor;
         Cargo: Serenity.StringEditor;
+        Funcao: Editors.CadastroEditor;
         UserImage: Serenity.StringEditor;
         DataEntrada: Serenity.DateEditor;
         DataSaida: Serenity.DateEditor;
@@ -22,18 +23,20 @@
 
                 var s = Serenity;
                 var w0 = s.StringEditor;
-                var w1 = s.DateEditor;
-                var w2 = s.IntegerEditor;
+                var w1 = Editors.CadastroEditor;
+                var w2 = s.DateEditor;
+                var w3 = s.IntegerEditor;
 
                 Q.initFormType(UsuariosForm, [
                     'Login', w0,
                     'NomeReal', w0,
                     'Email', w0,
                     'Cargo', w0,
+                    'Funcao', w1,
                     'UserImage', w0,
-                    'DataEntrada', w1,
-                    'DataSaida', w1,
-                    'Ativo', w2
+                    'DataEntrada', w2,
+                    'DataSaida', w2,
+                    'Ativo', w3
                 ]);
             }
         }

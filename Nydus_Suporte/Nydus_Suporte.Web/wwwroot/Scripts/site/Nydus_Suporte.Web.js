@@ -336,17 +336,19 @@ var Nydus_Suporte;
                     UsuariosForm.init = true;
                     var s = Serenity;
                     var w0 = s.StringEditor;
-                    var w1 = s.DateEditor;
-                    var w2 = s.IntegerEditor;
+                    var w1 = Nydus_Suporte.Editors.CadastroEditor;
+                    var w2 = s.DateEditor;
+                    var w3 = s.IntegerEditor;
                     Q.initFormType(UsuariosForm, [
                         'Login', w0,
                         'NomeReal', w0,
                         'Email', w0,
                         'Cargo', w0,
+                        'Funcao', w1,
                         'UserImage', w0,
-                        'DataEntrada', w1,
-                        'DataSaida', w1,
-                        'Ativo', w2
+                        'DataEntrada', w2,
+                        'DataSaida', w2,
+                        'Ativo', w3
                     ]);
                 }
                 return _this;
@@ -550,38 +552,6 @@ var Nydus_Suporte;
         }(Serenity.PrefixedContext));
         Membership.SignUpForm = SignUpForm;
     })(Membership = Nydus_Suporte.Membership || (Nydus_Suporte.Membership = {}));
-})(Nydus_Suporte || (Nydus_Suporte = {}));
-var Nydus_Suporte;
-(function (Nydus_Suporte) {
-    var LanguageList;
-    (function (LanguageList) {
-        function getValue() {
-            var result = [];
-            for (var _i = 0, _a = Nydus_Suporte.Administration.LanguageRow.getLookup().items; _i < _a.length; _i++) {
-                var k = _a[_i];
-                if (k.LanguageId !== 'en') {
-                    result.push([k.Id.toString(), k.LanguageName]);
-                }
-            }
-            return result;
-        }
-        LanguageList.getValue = getValue;
-    })(LanguageList = Nydus_Suporte.LanguageList || (Nydus_Suporte.LanguageList = {}));
-})(Nydus_Suporte || (Nydus_Suporte = {}));
-/// <reference path="../Common/Helpers/LanguageList.ts" />
-var Nydus_Suporte;
-(function (Nydus_Suporte) {
-    var ScriptInitialization;
-    (function (ScriptInitialization) {
-        Q.Config.responsiveDialogs = true;
-        Q.Config.rootNamespaces.push('Nydus_Suporte');
-        Serenity.EntityDialog.defaultLanguageList = Nydus_Suporte.LanguageList.getValue;
-        if ($.fn['colorbox']) {
-            $.fn['colorbox'].settings.maxWidth = "95%";
-            $.fn['colorbox'].settings.maxHeight = "95%";
-        }
-        window.onerror = Q.ErrorHandling.runtimeErrorHandler;
-    })(ScriptInitialization = Nydus_Suporte.ScriptInitialization || (Nydus_Suporte.ScriptInitialization = {}));
 })(Nydus_Suporte || (Nydus_Suporte = {}));
 var Nydus_Suporte;
 (function (Nydus_Suporte) {
@@ -1115,6 +1085,22 @@ var Nydus_Suporte;
 })(Nydus_Suporte || (Nydus_Suporte = {}));
 var Nydus_Suporte;
 (function (Nydus_Suporte) {
+    var Authorization;
+    (function (Authorization) {
+        Object.defineProperty(Authorization, 'userDefinition', {
+            get: function () {
+                return Q.getRemoteData('UserData');
+            }
+        });
+        function hasPermission(permissionKey) {
+            var ud = Authorization.userDefinition;
+            return ud.Username === 'admin' || !!ud.Permissions[permissionKey];
+        }
+        Authorization.hasPermission = hasPermission;
+    })(Authorization = Nydus_Suporte.Authorization || (Nydus_Suporte.Authorization = {}));
+})(Nydus_Suporte || (Nydus_Suporte = {}));
+var Nydus_Suporte;
+(function (Nydus_Suporte) {
     var Administration;
     (function (Administration) {
         var PermissionCheckEditor = /** @class */ (function (_super) {
@@ -1633,6 +1619,38 @@ var Nydus_Suporte;
 })(Nydus_Suporte || (Nydus_Suporte = {}));
 var Nydus_Suporte;
 (function (Nydus_Suporte) {
+    var LanguageList;
+    (function (LanguageList) {
+        function getValue() {
+            var result = [];
+            for (var _i = 0, _a = Nydus_Suporte.Administration.LanguageRow.getLookup().items; _i < _a.length; _i++) {
+                var k = _a[_i];
+                if (k.LanguageId !== 'en') {
+                    result.push([k.Id.toString(), k.LanguageName]);
+                }
+            }
+            return result;
+        }
+        LanguageList.getValue = getValue;
+    })(LanguageList = Nydus_Suporte.LanguageList || (Nydus_Suporte.LanguageList = {}));
+})(Nydus_Suporte || (Nydus_Suporte = {}));
+/// <reference path="../Common/Helpers/LanguageList.ts" />
+var Nydus_Suporte;
+(function (Nydus_Suporte) {
+    var ScriptInitialization;
+    (function (ScriptInitialization) {
+        Q.Config.responsiveDialogs = true;
+        Q.Config.rootNamespaces.push('Nydus_Suporte');
+        Serenity.EntityDialog.defaultLanguageList = Nydus_Suporte.LanguageList.getValue;
+        if ($.fn['colorbox']) {
+            $.fn['colorbox'].settings.maxWidth = "95%";
+            $.fn['colorbox'].settings.maxHeight = "95%";
+        }
+        window.onerror = Q.ErrorHandling.runtimeErrorHandler;
+    })(ScriptInitialization = Nydus_Suporte.ScriptInitialization || (Nydus_Suporte.ScriptInitialization = {}));
+})(Nydus_Suporte || (Nydus_Suporte = {}));
+var Nydus_Suporte;
+(function (Nydus_Suporte) {
     var BasicProgressDialog = /** @class */ (function (_super) {
         __extends(BasicProgressDialog, _super);
         function BasicProgressDialog() {
@@ -1866,6 +1884,30 @@ var Nydus_Suporte;
         }());
         Common.BulkServiceAction = BulkServiceAction;
     })(Common = Nydus_Suporte.Common || (Nydus_Suporte.Common = {}));
+})(Nydus_Suporte || (Nydus_Suporte = {}));
+var Nydus_Suporte;
+(function (Nydus_Suporte) {
+    var Editors;
+    (function (Editors) {
+        var CadastroEditor = /** @class */ (function (_super) {
+            __extends(CadastroEditor, _super);
+            function CadastroEditor(container) {
+                var _this = _super.call(this, container, null) || this;
+                _this.addOption("1", "Analista");
+                _this.addOption("2", "Suporte");
+                _this.addOption("3", "Desenvolvedor");
+                _this.addOption("4", "Leitura");
+                _this.addOption("5", "Acordo Coletivo");
+                _this.addOption("6", "Administrador de Dados");
+                return _this;
+            }
+            CadastroEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], CadastroEditor);
+            return CadastroEditor;
+        }(Serenity.Select2Editor));
+        Editors.CadastroEditor = CadastroEditor;
+    })(Editors = Nydus_Suporte.Editors || (Nydus_Suporte.Editors = {}));
 })(Nydus_Suporte || (Nydus_Suporte = {}));
 var Nydus_Suporte;
 (function (Nydus_Suporte) {
@@ -2757,22 +2799,6 @@ var Nydus_Suporte;
         }());
         Common.UserPreferenceStorage = UserPreferenceStorage;
     })(Common = Nydus_Suporte.Common || (Nydus_Suporte.Common = {}));
-})(Nydus_Suporte || (Nydus_Suporte = {}));
-var Nydus_Suporte;
-(function (Nydus_Suporte) {
-    var Authorization;
-    (function (Authorization) {
-        Object.defineProperty(Authorization, 'userDefinition', {
-            get: function () {
-                return Q.getRemoteData('UserData');
-            }
-        });
-        function hasPermission(permissionKey) {
-            var ud = Authorization.userDefinition;
-            return ud.Username === 'admin' || !!ud.Permissions[permissionKey];
-        }
-        Authorization.hasPermission = hasPermission;
-    })(Authorization = Nydus_Suporte.Authorization || (Nydus_Suporte.Authorization = {}));
 })(Nydus_Suporte || (Nydus_Suporte = {}));
 var Nydus_Suporte;
 (function (Nydus_Suporte) {

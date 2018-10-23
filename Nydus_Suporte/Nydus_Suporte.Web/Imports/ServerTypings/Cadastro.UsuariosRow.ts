@@ -9,6 +9,7 @@
         DataEntrada?: string;
         DataSaida?: string;
         Ativo?: number;
+        Funcao?: number;
     }
 
     export namespace UsuariosRow {
@@ -25,7 +26,8 @@
             UserImage = "UserImage",
             DataEntrada = "DataEntrada",
             DataSaida = "DataSaida",
-            Ativo = "Ativo"
+            Ativo = "Ativo",
+            Funcao = "Funcao"
         }
     }
 }
